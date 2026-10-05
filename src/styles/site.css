@@ -2266,8 +2266,9 @@ h1, h2, p { margin: 0; }
 
 @media (max-width: 1100px) {
   .aq-header {
-    padding: 18px 24px 0;
-    min-height: 96px;
+    padding: 10px 20px;
+    min-height: 64px;
+    height: 64px;
     align-items: center;
   }
   .aq-nav-desktop,
@@ -2277,27 +2278,53 @@ h1, h2, p { margin: 0; }
   .aq-menu-btn {
     display: inline-flex;
     margin-top: 0;
+    width: 44px;
+    height: 44px;
   }
   .aq-logo {
-    width: 52px;
-    height: 80px;
+    width: 40px;
+    height: 44px;
     margin-left: 0;
   }
   .aq-logo img {
-    width: 52px;
-    height: 80px;
+    width: 40px;
+    height: 44px;
+  }
+  .aq-mobile-nav__inner {
+    padding-top: max(72px, calc(env(safe-area-inset-top, 0px) + 56px));
   }
 }
 
 @media (max-width: 480px) {
   .aq-header {
-    padding: 14px 16px 0;
+    padding: 8px 14px;
+    min-height: 56px;
+    height: 56px;
   }
   .aq-menu-btn {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
+  }
+  .aq-logo {
+    width: 36px;
+    height: 40px;
+  }
+  .aq-logo img {
+    width: 36px;
+    height: 40px;
+  }
+  .aq-burger {
+    width: 18px;
+    height: 12px;
+  }
+  .aq-burger__line--mid { top: 5px; }
+  .aq-burger__line--bot { top: 10px; }
+  .aq-menu-btn.is-active .aq-burger__line--top,
+  .aq-menu-btn.is-active .aq-burger__line--bot {
+    top: 5px;
   }
   .aq-mobile-nav__inner {
+    padding-top: max(64px, calc(env(safe-area-inset-top, 0px) + 48px));
     padding-left: 22px;
     padding-right: 22px;
   }
@@ -2317,7 +2344,7 @@ h1, h2, p { margin: 0; }
 
   .aq-hero-content {
     width: calc(100% - 48px);
-    padding-top: 162px;
+    padding-top: 110px;
   }
 
   .aq-hero-title {
