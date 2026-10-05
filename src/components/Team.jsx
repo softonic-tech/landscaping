@@ -1,6 +1,5 @@
-import { motion } from 'framer-motion'
 import ProgressiveImage from './ProgressiveImage'
-import Reveal, { fadeUp, staggerContainer } from './Reveal'
+import Reveal, { InViewGroup, InViewItem } from './Reveal'
 
 const CheckIcon = () => (
   <svg viewBox="0 0 24 24" width="10" height="10" aria-hidden="true">
@@ -21,21 +20,15 @@ const features = [
 export default function Team() {
   return (
     <section className="aq-team" aria-label="Our Team">
-      <motion.div
-        className="aq-team-inner"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <motion.div className="aq-team-media" variants={fadeUp}>
+      <InViewGroup className="aq-team-inner" amount={0.2}>
+        <InViewItem className="aq-team-media">
           <ProgressiveImage
             src="/assets/area-green.webp"
             alt="NAM Landscaping in-house Dubai team"
             loading="lazy"
           />
           <span className="aq-team-label">50+ In-house team</span>
-        </motion.div>
+        </InViewItem>
 
         <Reveal className="aq-team-content" delay={0.08}>
           <h2 className="aq-team-title">One Company. One Standard.</h2>
@@ -61,7 +54,7 @@ export default function Team() {
             ))}
           </ul>
         </Reveal>
-      </motion.div>
+      </InViewGroup>
     </section>
   )
 }

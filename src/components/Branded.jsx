@@ -1,8 +1,7 @@
-import { motion } from 'framer-motion'
 import { brandedBrands } from '../data/content'
 import { brandedResidences } from '../data/homepage'
 import ProgressiveImage from './ProgressiveImage'
-import Reveal, { fadeUp, staggerContainer } from './Reveal'
+import Reveal, { InViewGroup, InViewItem } from './Reveal'
 
 const CheckIcon = () => (
   <svg viewBox="0 0 24 24" width="10" height="10" aria-hidden="true">
@@ -41,15 +40,9 @@ export default function Branded() {
           </p>
         </Reveal>
 
-        <motion.div
-          className="aq-branded-grid"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
-        >
+        <InViewGroup className="aq-branded-grid" amount={0.15}>
           {brandedResidences.map((item) => (
-            <motion.article key={item.id} className="aq-branded-card" variants={fadeUp}>
+            <InViewItem key={item.id} as="article" className="aq-branded-card">
               <div className="aq-branded-media">
                 <ProgressiveImage src={item.image} alt={item.title} loading="lazy" />
               </div>
@@ -67,9 +60,9 @@ export default function Branded() {
                   ))}
                 </ul>
               </div>
-            </motion.article>
+            </InViewItem>
           ))}
-        </motion.div>
+        </InViewGroup>
       </div>
     </section>
   )

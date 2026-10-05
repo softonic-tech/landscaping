@@ -1,7 +1,6 @@
-import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import ProgressiveImage from './ProgressiveImage'
-import Reveal, { fadeUp, staggerContainer } from './Reveal'
+import Reveal, { InViewGroup, InViewItem } from './Reveal'
 
 export default function Intro() {
   return (
@@ -18,51 +17,45 @@ export default function Intro() {
           </p>
         </Reveal>
 
-        <motion.div
-          className="aq-intro-collage"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-        >
-          <motion.div className="aq-intro-main" variants={fadeUp}>
+        <InViewGroup className="aq-intro-collage" amount={0.25}>
+          <InViewItem className="aq-intro-main">
             <ProgressiveImage
               src="/assets/garden.png"
               alt="Premium villa garden landscaping in Dubai"
               loading="lazy"
             />
-          </motion.div>
+          </InViewItem>
 
-          <motion.div variants={fadeUp}>
+          <InViewItem>
             <Link to="/projects/" className="aq-stat-card aq-stat-card--listings">
               <span className="aq-stat-value">1,000+</span>
               <span className="aq-stat-label">Projects across Dubai</span>
             </Link>
-          </motion.div>
+          </InViewItem>
 
-          <motion.div className="aq-intro-side" variants={fadeUp}>
+          <InViewItem className="aq-intro-side">
             <ProgressiveImage
               src="/assets/area-villa.webp"
               alt="Dubai villa outdoor living"
               loading="lazy"
             />
-          </motion.div>
+          </InViewItem>
 
-          <motion.div className="aq-intro-bottom" variants={fadeUp}>
+          <InViewItem className="aq-intro-bottom">
             <ProgressiveImage
               src="/assets/pool.png"
               alt="Swimming pool maintenance in Dubai"
               loading="lazy"
             />
-          </motion.div>
+          </InViewItem>
 
-          <motion.div variants={fadeUp}>
+          <InViewItem>
             <button type="button" className="aq-stat-card aq-stat-card--branded">
               <span className="aq-stat-value">10+ yrs</span>
               <span className="aq-stat-label">Serving Dubai outdoors</span>
             </button>
-          </motion.div>
-        </motion.div>
+          </InViewItem>
+        </InViewGroup>
       </div>
     </section>
   )

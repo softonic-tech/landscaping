@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import useLiteMotion from '../hooks/useLiteMotion'
 import ProgressiveImage from './ProgressiveImage'
-import Reveal, { fadeUp, staggerContainer } from './Reveal'
+import Reveal, { InViewGroup, InViewItem, fadeUp } from './Reveal'
+import { motion } from 'framer-motion'
 
 const CheckIcon = () => (
   <svg viewBox="0 0 24 24" width="10" height="10" aria-hidden="true">
@@ -45,6 +46,45 @@ const products = [
 
 const MotionLink = motion.create(Link)
 
+function ProductCard({ item }) {
+  const lite = useLiteMotion()
+  const body = (
+    <>
+      <div className="aq-product-media">
+        <ProgressiveImage src={item.image} alt="" loading="lazy" />
+      </div>
+      <div className="aq-product-body">
+        <h3 className="aq-product-name">{item.title}</h3>
+        <p className="aq-product-desc">{item.description}</p>
+        <ul className="aq-product-features">
+          {item.features.map((feature) => (
+            <li key={feature}>
+              <span className="aq-product-check">
+                <CheckIcon />
+              </span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  )
+
+  if (lite) {
+    return (
+      <Link to={item.to} className="aq-product-card">
+        {body}
+      </Link>
+    )
+  }
+
+  return (
+    <MotionLink to={item.to} className="aq-product-card" variants={fadeUp}>
+      {body}
+    </MotionLink>
+  )
+}
+
 export default function Products() {
   return (
     <section className="aq-products" aria-label="Outdoor services">
@@ -57,40 +97,11 @@ export default function Products() {
           </p>
         </Reveal>
 
-        <motion.div
-          className="aq-products-grid"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
-        >
+        <InViewGroup className="aq-products-grid" amount={0.15}>
           {products.map((item) => (
-            <MotionLink
-              key={item.title}
-              to={item.to}
-              className="aq-product-card"
-              variants={fadeUp}
-            >
-              <div className="aq-product-media">
-                <ProgressiveImage src={item.image} alt="" loading="lazy" />
-              </div>
-              <div className="aq-product-body">
-                <h3 className="aq-product-name">{item.title}</h3>
-                <p className="aq-product-desc">{item.description}</p>
-                <ul className="aq-product-features">
-                  {item.features.map((feature) => (
-                    <li key={feature}>
-                      <span className="aq-product-check">
-                        <CheckIcon />
-                      </span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </MotionLink>
+            <ProductCard key={item.title} item={item} />
           ))}
-        </motion.div>
+        </InViewGroup>
       </div>
     </section>
   )

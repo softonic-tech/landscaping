@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 import { testimonials } from '../data/homepage'
+import useLiteMotion from '../hooks/useLiteMotion'
 
 const Star = () => (
   <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
@@ -33,6 +33,7 @@ function ReviewCard({ item }) {
 
 export default function Testimonials() {
   const trackRef = useRef(null)
+  const lite = useLiteMotion()
 
   useEffect(() => {
     const track = trackRef.current
@@ -40,7 +41,8 @@ export default function Testimonials() {
 
     let frame = 0
     let x = 0
-    const speed = 0.35
+    // Slower / paused-friendly on mobile to reduce scroll jank
+    const speed = lite ? 0.22 : 0.35
 
     const tick = () => {
       x -= speed
@@ -52,19 +54,12 @@ export default function Testimonials() {
 
     frame = window.requestAnimationFrame(tick)
     return () => window.cancelAnimationFrame(frame)
-  }, [])
+  }, [lite])
 
   const loop = [...testimonials, ...testimonials]
 
   return (
-    <motion.section
-      className="aq-testimonials"
-      aria-label="Testimonials"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <section className="aq-testimonials" aria-label="Testimonials">
       <div className="aq-testimonials-viewport">
         <div className="aq-testimonials-track" ref={trackRef}>
           {loop.map((item, i) => (
@@ -72,6 +67,6 @@ export default function Testimonials() {
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   )
 }

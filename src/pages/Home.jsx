@@ -4,6 +4,7 @@ import ContactForm from '../components/ContactForm'
 import Hero from '../components/Hero'
 import Hyatt from '../components/Hyatt'
 import Intro from '../components/Intro'
+import LazySection from '../components/LazySection'
 import ListingGrid from '../components/ListingGrid'
 import OffPlanApartments from '../components/OffPlanApartments'
 import OffPlanVillas from '../components/OffPlanVillas'
@@ -35,22 +36,60 @@ export default function Home() {
   )
 
   useEffect(() => {
-    warmImages(HOME_IMAGES)
+    // Don't compete with first paint / scroll on mobile — warm during idle
+    const ric = window.requestIdleCallback
+    const start = () => warmImages(HOME_IMAGES)
+    if (ric) {
+      const id = ric(start, { timeout: 1800 })
+      return () => window.cancelIdleCallback?.(id)
+    }
+    const t = window.setTimeout(start, 600)
+    return () => window.clearTimeout(t)
   }, [])
 
   return (
     <main>
       <Hero />
-      <Intro />
-      <Products />
-      <Team />
-      <OffPlanApartments />
-      <Hyatt />
-      <ListingGrid listings={apartmentsBelowHyatt} label="Featured Dubai projects" />
-      <OffPlanVillas />
-      <Branded />
-      <ContactForm />
-      <Testimonials />
+
+      <LazySection skeleton="block">
+        <Intro />
+      </LazySection>
+
+      <LazySection skeleton="cards">
+        <Products />
+      </LazySection>
+
+      <LazySection skeleton="split">
+        <Team />
+      </LazySection>
+
+      <LazySection skeleton="listings">
+        <OffPlanApartments />
+      </LazySection>
+
+      <LazySection skeleton="band">
+        <Hyatt />
+      </LazySection>
+
+      <LazySection skeleton="listings">
+        <ListingGrid listings={apartmentsBelowHyatt} label="Featured Dubai projects" />
+      </LazySection>
+
+      <LazySection skeleton="listings">
+        <OffPlanVillas />
+      </LazySection>
+
+      <LazySection skeleton="cards">
+        <Branded />
+      </LazySection>
+
+      <LazySection skeleton="block">
+        <ContactForm />
+      </LazySection>
+
+      <LazySection skeleton="band">
+        <Testimonials />
+      </LazySection>
     </main>
   )
 }

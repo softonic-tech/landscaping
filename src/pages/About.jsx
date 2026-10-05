@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import ProgressiveImage from '../components/ProgressiveImage'
-import Reveal, { fadeUp, staggerContainer } from '../components/Reveal'
+import Reveal, { InViewGroup, InViewItem } from '../components/Reveal'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 const CheckIcon = () => (
@@ -36,21 +35,15 @@ export default function About() {
       />
 
       <section className="aq-team" aria-label="About NAM Landscaping">
-        <motion.div
-          className="aq-team-inner"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <motion.div className="aq-team-media" variants={fadeUp}>
+        <InViewGroup className="aq-team-inner" amount={0.2}>
+          <InViewItem className="aq-team-media">
             <ProgressiveImage
               src="/assets/garden.png"
               alt="NAM Landscaping Dubai team"
               loading="lazy"
             />
             <span className="aq-team-label">50+ In-house team</span>
-          </motion.div>
+          </InViewItem>
 
           <Reveal className="aq-team-content" delay={0.08}>
             <h2 className="aq-team-title">Built Around a Simple Frustration</h2>
@@ -82,7 +75,7 @@ export default function About() {
               </Link>
             </div>
           </Reveal>
-        </motion.div>
+        </InViewGroup>
       </section>
     </main>
   )

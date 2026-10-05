@@ -1,8 +1,7 @@
-import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 import ProgressiveImage from '../components/ProgressiveImage'
-import Reveal, { fadeUp, staggerContainer } from '../components/Reveal'
+import Reveal, { InViewGroup } from '../components/Reveal'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 const CheckIcon = () => (
@@ -89,8 +88,6 @@ const services = [
   },
 ]
 
-const MotionLink = motion.create(Link)
-
 export default function Services() {
   useDocumentTitle(
     'Landscaping & Pool Services in Dubai | NAM Landscaping',
@@ -115,20 +112,9 @@ export default function Services() {
             </p>
           </Reveal>
 
-          <motion.div
-            className="aq-products-grid"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
-          >
+          <InViewGroup className="aq-products-grid" amount={0.1}>
             {services.map((item) => (
-              <MotionLink
-                key={item.title}
-                to="/contact/"
-                className="aq-product-card"
-                variants={fadeUp}
-              >
+              <Link key={item.title} to="/contact/" className="aq-product-card">
                 <div className="aq-product-media">
                   <ProgressiveImage src={item.image} alt="" loading="lazy" />
                 </div>
@@ -146,9 +132,9 @@ export default function Services() {
                     ))}
                   </ul>
                 </div>
-              </MotionLink>
+              </Link>
             ))}
-          </motion.div>
+          </InViewGroup>
         </div>
       </section>
     </main>

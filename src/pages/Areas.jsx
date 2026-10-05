@@ -1,7 +1,6 @@
-import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
 import ProgressiveImage from '../components/ProgressiveImage'
-import Reveal, { fadeUp, staggerContainer } from '../components/Reveal'
+import Reveal, { InViewGroup, InViewItem } from '../components/Reveal'
 import { brandedBrands } from '../data/content'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
@@ -62,15 +61,9 @@ export default function Areas() {
             </ul>
           </Reveal>
 
-          <motion.div
-            className="aq-areas-grid"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.12 }}
-          >
+          <InViewGroup className="aq-areas-grid" amount={0.12}>
             {areas.map((item) => (
-              <motion.article key={item.title} className="aq-areas-card" variants={fadeUp}>
+              <InViewItem key={item.title} as="article" className="aq-areas-card">
                 <div className="aq-areas-media">
                   <ProgressiveImage src={item.image} alt={item.title} loading="lazy" />
                 </div>
@@ -83,9 +76,9 @@ export default function Areas() {
                     ))}
                   </ul>
                 </div>
-              </motion.article>
+              </InViewItem>
             ))}
-          </motion.div>
+          </InViewGroup>
         </div>
       </section>
     </main>
