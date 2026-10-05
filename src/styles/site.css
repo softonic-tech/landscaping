@@ -704,10 +704,6 @@ h1, h2, p { margin: 0; }
 }
 
 .aq-hero-overlay {
-  display: none;
-}
-
-.aq-hero--page .aq-hero-overlay {
   display: block;
   position: absolute;
   inset: 0;
@@ -1153,21 +1149,30 @@ h1, h2, p { margin: 0; }
 }
 .aq-team-label {
   position: absolute;
-  top: 17px;
-  left: 17px;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  width: fit-content;
+  max-width: calc(100% - 32px);
   display: inline-flex;
   align-items: center;
-  height: 28px;
-  padding: 4px 12px;
+  justify-content: center;
+  min-height: 32px;
+  height: auto;
+  padding: 8px 14px;
   border-radius: 100px;
   background: rgb(38, 38, 38);
   color: #fff;
   font-family: Inter, sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
-  line-height: 20px;
+  line-height: 1.35;
+  text-align: center;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .aq-team-content {
   padding-top: 48px;

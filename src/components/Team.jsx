@@ -21,7 +21,7 @@ export default function Team() {
             alt={`${site.name} landscaping work`}
             loading="lazy"
           />
-          <span className="aq-team-label">{site.values.join(' · ')}</span>
+          <span className="aq-team-label">Quality · Reliable · Satisfaction</span>
         </InViewItem>
 
         <Reveal className="aq-team-content" delay={0.08}>

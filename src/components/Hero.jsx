@@ -10,8 +10,8 @@ export default function Hero() {
     <section className="aq-hero" aria-label="Hero">
       <motion.div
         className="aq-hero-media"
-        initial={{ scale: 1.06 }}
-        animate={{ scale: 1 }}
+        initial={{ scale: 1.06, opacity: 0.85 }}
+        animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.1, ease }}
       >
         <ProgressiveImage
@@ -21,6 +21,7 @@ export default function Hero() {
           loading="eager"
           fetchPriority="high"
         />
+        <div className="aq-hero-overlay" aria-hidden="true" />
       </motion.div>
 
       <div className="aq-hero-content">
