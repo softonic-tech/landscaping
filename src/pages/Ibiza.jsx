@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import ProgressiveImage from '../components/ProgressiveImage'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 const ibizaHighlights = [
@@ -62,7 +63,7 @@ export default function Ibiza() {
           <div className="property-grid">
             {ibizaHighlights.map((item) => (
               <article className="property-card" key={item.title}>
-                <img src={item.image} alt={item.title} loading="lazy" />
+                <ProgressiveImage src={item.image} alt={item.title} loading="lazy" />
                 <div className="property-body">
                   <h3>{item.title}</h3>
                   <p className="property-meta">{item.text}</p>

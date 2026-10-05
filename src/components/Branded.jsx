@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { brandedBrands } from '../data/content'
 import { brandedResidences } from '../data/homepage'
+import ProgressiveImage from './ProgressiveImage'
 import Reveal, { fadeUp, staggerContainer } from './Reveal'
 
 const CheckIcon = () => (
@@ -50,7 +51,7 @@ export default function Branded() {
           {brandedResidences.map((item) => (
             <motion.article key={item.id} className="aq-branded-card" variants={fadeUp}>
               <div className="aq-branded-media">
-                <img src={item.image} alt={item.title} />
+                <ProgressiveImage src={item.image} alt={item.title} loading="lazy" />
               </div>
               <div className="aq-branded-body">
                 <h3>{item.title}</h3>

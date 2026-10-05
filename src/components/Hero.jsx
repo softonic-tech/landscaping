@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import ProgressiveImage from './ProgressiveImage'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -12,7 +13,13 @@ export default function Hero() {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.1, ease }}
       >
-        <img src="/assets/garden.png" alt="" className="aq-hero-image" />
+        <ProgressiveImage
+          src="/assets/garden.png"
+          alt=""
+          className="aq-hero-image"
+          loading="eager"
+          fetchPriority="high"
+        />
         <div className="aq-hero-overlay" aria-hidden="true" />
       </motion.div>
 

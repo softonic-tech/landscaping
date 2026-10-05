@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ProgressiveImage from './ProgressiveImage'
 
 export default function ImageCarousel({ images, alt = '' }) {
   const [index, setIndex] = useState(0)
@@ -10,7 +11,7 @@ export default function ImageCarousel({ images, alt = '' }) {
 
   return (
     <div className="aq-carousel">
-      <img src={slides[index]} alt={alt} />
+      <ProgressiveImage src={slides[index]} alt={alt} loading="lazy" />
       {slides.length > 1 ? (
         <>
           <button type="button" className="aq-carousel-btn aq-carousel-btn--prev" onClick={prev} aria-label="Previous image">

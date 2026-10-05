@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import ProgressiveImage from './ProgressiveImage'
 import Reveal, { fadeUp, staggerContainer } from './Reveal'
 
 export default function Intro() {
@@ -25,7 +26,11 @@ export default function Intro() {
           viewport={{ once: true, amount: 0.25 }}
         >
           <motion.div className="aq-intro-main" variants={fadeUp}>
-            <img src="/assets/garden.png" alt="Premium villa garden landscaping in Dubai" />
+            <ProgressiveImage
+              src="/assets/garden.png"
+              alt="Premium villa garden landscaping in Dubai"
+              loading="lazy"
+            />
           </motion.div>
 
           <motion.div variants={fadeUp}>
@@ -36,11 +41,19 @@ export default function Intro() {
           </motion.div>
 
           <motion.div className="aq-intro-side" variants={fadeUp}>
-            <img src="/assets/area-villa.webp" alt="Dubai villa outdoor living" />
+            <ProgressiveImage
+              src="/assets/area-villa.webp"
+              alt="Dubai villa outdoor living"
+              loading="lazy"
+            />
           </motion.div>
 
           <motion.div className="aq-intro-bottom" variants={fadeUp}>
-            <img src="/assets/pool.png" alt="Swimming pool maintenance in Dubai" />
+            <ProgressiveImage
+              src="/assets/pool.png"
+              alt="Swimming pool maintenance in Dubai"
+              loading="lazy"
+            />
           </motion.div>
 
           <motion.div variants={fadeUp}>

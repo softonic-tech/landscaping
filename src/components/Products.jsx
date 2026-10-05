@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import ProgressiveImage from './ProgressiveImage'
 import Reveal, { fadeUp, staggerContainer } from './Reveal'
 
 const CheckIcon = () => (
@@ -71,7 +72,7 @@ export default function Products() {
               variants={fadeUp}
             >
               <div className="aq-product-media">
-                <img src={item.image} alt="" />
+                <ProgressiveImage src={item.image} alt="" loading="lazy" />
               </div>
               <div className="aq-product-body">
                 <h3 className="aq-product-name">{item.title}</h3>

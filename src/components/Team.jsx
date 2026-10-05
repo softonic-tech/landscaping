@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import ProgressiveImage from './ProgressiveImage'
 import Reveal, { fadeUp, staggerContainer } from './Reveal'
 
 const CheckIcon = () => (
@@ -28,7 +29,11 @@ export default function Team() {
         viewport={{ once: true, amount: 0.2 }}
       >
         <motion.div className="aq-team-media" variants={fadeUp}>
-          <img src="/assets/area-green.webp" alt="NAM Landscaping in-house Dubai team" />
+          <ProgressiveImage
+            src="/assets/area-green.webp"
+            alt="NAM Landscaping in-house Dubai team"
+            loading="lazy"
+          />
           <span className="aq-team-label">50+ In-house team</span>
         </motion.div>
 

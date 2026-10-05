@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
+import ProgressiveImage from '../components/ProgressiveImage'
 import Reveal, { fadeUp, staggerContainer } from '../components/Reveal'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
@@ -43,7 +44,11 @@ export default function About() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <motion.div className="aq-team-media" variants={fadeUp}>
-            <img src="/assets/garden.png" alt="NAM Landscaping Dubai team" />
+            <ProgressiveImage
+              src="/assets/garden.png"
+              alt="NAM Landscaping Dubai team"
+              loading="lazy"
+            />
             <span className="aq-team-label">50+ In-house team</span>
           </motion.div>
 

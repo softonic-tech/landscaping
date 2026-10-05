@@ -3,6 +3,40 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { navLinks, site } from '../data/content'
 
+const ease = [0.22, 1, 0.36, 1]
+
+const mobileLinks = [{ to: '/', label: 'Home' }, ...navLinks]
+
+const listVariants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.12 },
+  },
+  exit: {
+    transition: { staggerChildren: 0.04, staggerDirection: -1 },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 28, filter: 'blur(6px)' },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.55, ease },
+  },
+  exit: {
+    opacity: 0,
+    y: 12,
+    transition: { duration: 0.2 },
+  },
+}
+
+function isActive(pathname, to) {
+  if (to === '/') return pathname === '/'
+  return pathname.startsWith(to.replace(/\/$/, '')) || pathname.startsWith(to)
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
@@ -46,101 +80,117 @@ export default function Header() {
         </div>
 
         <button
-          className="aq-menu-btn"
+          className={`aq-menu-btn${open ? ' is-active' : ''}`}
           type="button"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="aq-mobile-nav"
           onClick={() => setOpen((v) => !v)}
         >
-          <svg viewBox="0 0 32 32" width="21" height="21" aria-hidden="true">
-            {open ? (
-              <>
-                <path
-                  d="M6 6l20 20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M26 6L6 26"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </>
-            ) : (
-              <>
-                <path
-                  d="M2 9h28"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M2 23h28"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </>
-            )}
-          </svg>
+          <span className="aq-menu-btn__ring" aria-hidden="true" />
+          <span className="aq-burger" aria-hidden="true">
+            <span className="aq-burger__line aq-burger__line--top" />
+            <span className="aq-burger__line aq-burger__line--mid" />
+            <span className="aq-burger__line aq-burger__line--bot" />
+          </span>
         </button>
       </header>
 
       <AnimatePresence>
         {open ? (
           <motion.div
-            className="aq-drawer"
+            className="aq-mobile-nav"
+            id="aq-mobile-nav"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            onClick={() => setOpen(false)}
+            transition={{ duration: 0.35, ease }}
           >
-            <motion.nav
-              id="aq-mobile-nav"
-              className="aq-drawer-panel"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              aria-label="Mobile"
-            >
-              <div className="aq-drawer-top">
-                <span className="aq-drawer-title">Menu</span>
-                <button
-                  type="button"
-                  className="aq-drawer-close"
-                  aria-label="Close menu"
+            <motion.div
+              className="aq-mobile-nav__bg"
+              aria-hidden="true"
+              initial={{ scale: 1.08, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 1.04, opacity: 0 }}
+              transition={{ duration: 0.5, ease }}
+            />
+
+            <div className="aq-mobile-nav__inner">
+              <motion.div
+                className="aq-mobile-nav__head"
+                initial={{ opacity: 0, y: -12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.35, ease, delay: 0.05 }}
+              >
+                <div className="aq-mobile-nav__brand">
+                  <span className="aq-mobile-nav__eyebrow">NAM Landscaping</span>
+                  <span className="aq-mobile-nav__place">Dubai · Outdoors</span>
+                </div>
+              </motion.div>
+
+              <motion.nav
+                className="aq-mobile-nav__links"
+                aria-label="Mobile"
+                variants={listVariants}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+              >
+                {mobileLinks.map((link) => {
+                  const active = isActive(location.pathname, link.to)
+                  return (
+                    <motion.div key={link.to} variants={itemVariants}>
+                      <Link
+                        to={link.to}
+                        className={`aq-mobile-nav__link${active ? ' is-active' : ''}`}
+                        onClick={() => setOpen(false)}
+                        aria-current={active ? 'page' : undefined}
+                      >
+                        <span className="aq-mobile-nav__label">{link.label}</span>
+                        <span className="aq-mobile-nav__arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </Link>
+                    </motion.div>
+                  )
+                })}
+              </motion.nav>
+
+              <motion.div
+                className="aq-mobile-nav__foot"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 12 }}
+                transition={{ duration: 0.45, ease, delay: 0.28 }}
+              >
+                <Link
+                  className="aq-mobile-nav__cta"
+                  to="/contact/"
                   onClick={() => setOpen(false)}
                 >
-                  ✕
-                </button>
-              </div>
-
-              <Link to="/" onClick={() => setOpen(false)}>
-                Home
-              </Link>
-              {navLinks.map((link) => (
-                <Link key={link.to} to={link.to} onClick={() => setOpen(false)}>
-                  {link.label}
+                  Free Site Visit
                 </Link>
-              ))}
-              <Link className="aq-drawer-cta" to="/contact/" onClick={() => setOpen(false)}>
-                Free Site Visit
-              </Link>
-              <div className="aq-drawer-contacts">
-                <a href={site.emailHref}>{site.email}</a>
-                <a href={site.phoneHref}>{site.phone}</a>
-              </div>
-            </motion.nav>
+
+                <div className="aq-mobile-nav__actions">
+                  <a className="aq-mobile-nav__action" href={site.phoneHref}>
+                    <span className="aq-mobile-nav__action-label">Call</span>
+                    <span className="aq-mobile-nav__action-value">{site.phone}</span>
+                  </a>
+                  <a className="aq-mobile-nav__action" href={site.whatsapp} target="_blank" rel="noreferrer">
+                    <span className="aq-mobile-nav__action-label">WhatsApp</span>
+                    <span className="aq-mobile-nav__action-value">Chat now</span>
+                  </a>
+                  <a className="aq-mobile-nav__action" href={site.emailHref}>
+                    <span className="aq-mobile-nav__action-label">Email</span>
+                    <span className="aq-mobile-nav__action-value">{site.email}</span>
+                  </a>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         ) : null}
       </AnimatePresence>

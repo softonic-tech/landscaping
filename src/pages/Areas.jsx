@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import PageHero from '../components/PageHero'
+import ProgressiveImage from '../components/ProgressiveImage'
 import Reveal, { fadeUp, staggerContainer } from '../components/Reveal'
 import { brandedBrands } from '../data/content'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
@@ -71,7 +72,7 @@ export default function Areas() {
             {areas.map((item) => (
               <motion.article key={item.title} className="aq-areas-card" variants={fadeUp}>
                 <div className="aq-areas-media">
-                  <img src={item.image} alt={item.title} />
+                  <ProgressiveImage src={item.image} alt={item.title} loading="lazy" />
                 </div>
                 <div className="aq-areas-body">
                   <h3>{item.title}</h3>

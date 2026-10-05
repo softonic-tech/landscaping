@@ -1,0 +1,40 @@
+// Auto-generated tiny LQIP data URIs for progressive image loading
+export const imagePlaceholders = {
+  '/assets/area-green.webp': 'data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAAAwBACdASoYAAwAPu1iqU2ppaOiMAgBMB2JZACdACIga90GBgOwpauJIAAA/e2Rbe36+w/BPuZAI2cdWUvgTQ4m490sRqQ7/8bQs7mYNFMa3oU3HwrnyRk5gvuTExqD2Zohh+E1IVOrithWys38Lw9VRksdYnwt8E2FNTjeXTOkXpkFA78R5WBC6qcQ5gFVvQCyaAAA',
+  '/assets/area-urban.webp': 'data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAADwAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JZACdMoAluxN8+wBiHXukAPaj18zLJhmZM+ZbTAVsQr4ChsEw+SgyC/wfxKXdvtLJP2G0lt5lI3MU8v/AbtrilKjQohygysA2FZJkHt2TY5BUCE5PTtN6F2Nwi2dt2usMAnwtiI00aVE3h8I/7lsXhnx04kiLmiXqSq5Fh4uRDUw+QCkAAA==',
+  '/assets/area-villa.webp': 'data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JZgCsACKUIyzctTp3sejQBgAA/mFKwGw6YV3TVcJhXa08tz0mpNwm7Tkvc+Tb+1hJu1m2w7xzSWY6txcROe4o6C2c47ZKUFXm/Gw7QCWSNDheju4Gm0uWETdHWYrfeFHJPUqZL0vtIVKxnUIq/Y8wJkOiZw0AAAA=',
+  '/assets/area-waterfront.webp': 'data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADwAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoMjbCRVFQYm/MgAAM4fbPIqz0jm+j3WsxvglpZco0WHfuhfTY88lgl43rnh6DCTwvS4XZht5bvCcn2fu5xTAc/FSSwcBM6sHdY72IbDwQQxJR0xs5n+eVhPTWcJBzCIx7GHUk0p0kjCm9c62jFSwAAA',
+  '/assets/garden.png': 'data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JagCdMoR3JoHh/gEyFZ9tvAZB8AD+vkRxWqb9/fCiexjadlTfbmMgszmcFawSIt0bdaVNkRdLP9ghrrq7euZUZBJShy/ttW8X4D6Os8PhiabgHPWpSfDTwYRWfPTSJWTtuV11bY8llj1KkeXbjLfvj6Y7/SuhEG5yOxZ2U1PcJ9GhsEs1Fqp4sV5YAA==',
+  '/assets/hero.png': 'data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADQBACdASoYAA4APu1kqk4ppaQiMAgBMB2JagCdMoMYA0hNvA+fNU+LJRXDUXf4AAD+xXDX/iJ5zftHpF8pbwag7JEtQFKRIumnlp4xoSbxCrh1HY1NVnTDbw8yDBY2zWsR7kSj/cO2d+fZ3LHLzGJaG6+zLKPSaIlKLWb9I3q7lpcch0htBOwMt2nsja2WMjVq8LX5VwIEAA==',
+  '/assets/irrigation.webp': 'data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JbACdACB2OlVf4G4JefrTQAD9K/ATZvfjnY8Af6FTPKO64g1i3d6ZMTeCgaDQlyDvbSXCRJwP7Mjon1w75r5OsY/gjhT2dKsinm7fz98Vg4BINq+z18pFFnKXltoQ3cYkIKgC7grweKwKubZEEZP/kAA=',
+  '/assets/lighting.webp': 'data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JagCdMoACwa4Bwc82lH1v0wAA/qsI33XI6s3/xq9rJMqPxEeRCFMNJj4AtmT/nV9ZBi81FvrVdS5vCfaIr1bipxUqBeZUA2l3E/79IrGbOr8Eyi5jwmGuEGDv0MjP8a/T+QoZURcGZKEoqMYLJDJthTeED8Xu/3P/PhmkSfH94u5RAFdJ5/5EfytUoRaMAa1EzsAA',
+  '/assets/opt/area-green.webp': 'data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAAAwBACdASoYAAwAPu1iqU2ppaOiMAgBMB2JZACdACIga90GBgOwpauJIAAA/e2Rbe36+w/BPuZAI2cdWUvgTQ4m490sRqQ7/8bQs7mYNFMa3oU3HwrnyRk5gvuTExqD2Zohh+E1IVOrithWys38Lw9VRksdYnwt8E2FNTjeXTOkXpkFA78R5WBC6qcQ5gFVvQCyaAAA',
+  '/assets/opt/area-urban.webp': 'data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAADwAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JZACdMoAluxN8+wBiHXukAPaj18zLJhmZM+ZbTAVsQr4ChsEw+SgyC/wfxKXdvtLJP2G0lt5lI3MU8v/AbtrilKjQohygysA2FZJkHt2TY5BUCE5PTtN6F2Nwi2dt2usMAnwtiI00aVE3h8I/7lsXhnx04kiLmiXqSq5Fh4uRDUw+QCkAAA==',
+  '/assets/opt/area-villa.webp': 'data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JZgCsACKUIyzctTp3sejQBgAA/mFKwGw6YV3TVcJhXa08tz0mpNwm7Tkvc+Tb+1hJu1m2w7xzSWY6txcROe4o6C2c47ZKUFXm/Gw7QCWSNDheju4Gm0uWETdHWYrfeFHJPUqZL0vtIVKxnUIq/Y8wJkOiZw0AAAA=',
+  '/assets/opt/area-waterfront.webp': 'data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADwAwCdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoMjbCRVFQYm/MgAAM4fbPIqz0jm+j3WsxvglpZco0WHfuhfTY88lgl43rnh6DCTwvS4XZht5bvCcn2fu5xTAc/FSSwcBM6sHdY72IbDwQQxJR0xs5n+eVhPTWcJBzCIx7GHUk0p0kjCm9c62jFSwAAA',
+  '/assets/opt/garden.webp': 'data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAABwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JagCdMoR3JoHh/gEyFZ9tvAZB8AD+vkRxWqb9/fCiexjadlTfbmMgszmcFawSIt0bdaVNkRdLP9ghrrq7euZUZBJShy/ttW8X4D6Os8PhiabgHPWpSfDTwYRWfPTSJWTtuV11bY8llj1KkeXbjLfvj6Y7/SuhEG5yOxZ2U1PcJ9GhsEs1Fqp4sV5YAA==',
+  '/assets/opt/hero.webp': 'data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADQBACdASoYAA4APu1kqk4ppaQiMAgBMB2JagCdMoMYA0hNvA+fNU+LJRXDUXf4AAD+xXDX/iJ5zftHpF8pbwag7JEtQFKRIumnlp4xoSbxCrh1HY1NVnTDbw8yDBY2zWsR7kSj/cO2d+fZ3LHLzGJaG6+zLKPSaIlKLWb9I3q7lpcch0htBOwMt2nsja2WMjVq8LX5VwIEAA==',
+  '/assets/opt/irrigation.webp': 'data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JbACdACB2OlVf4G4JefrTQAD9K/ATZvfjnY8Af6FTPKO64g1i3d6ZMTeCgaDQlyDvbSXCRJwP7Mjon1w75r5OsY/gjhT2dKsinm7fz98Vg4BINq+z18pFFnKXltoQ3cYkIKgC7grweKwKubZEEZP/kAA=',
+  '/assets/opt/lighting.webp': 'data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JagCdMoACwa4Bwc82lH1v0wAA/qsI33XI6s3/xq9rJMqPxEeRCFMNJj4AtmT/nV9ZBi81FvrVdS5vCfaIr1bipxUqBeZUA2l3E/79IrGbOr8Eyi5jwmGuEGDv0MjP8a/T+QoZURcGZKEoqMYLJDJthTeED8Xu/3P/PhmkSfH94u5RAFdJ5/5EfytUoRaMAa1EzsAA',
+  '/assets/opt/pergola.webp': 'data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAABQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JYgCdH8ACcwWph5W0H+wUwO6oAP06JSRI/rhgK73rE/GkQgaCYFT2/LQDHt8y0mgDY+zJn0zG0T7QV3aIjd/OlxQg/iD0G7usKMVw5okXZiavtlxuXgzgs8/pbJzgnZyxRbe4oEZl6K+EHa+C0Q7cXyIl7fFXjoKD4pmpr7vDQka5RD5d9e1M2O0BUtuLKgAAAA==',
+  '/assets/opt/pool.webp': 'data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JbACdMoR3Ff/l2AB7JHg55O8AAP6pxZ8geNiVumvmQCVx+35zdTq2Fjp27GoKaASGaK1kjZtlvqr8DBcWjRRfuGGg2qo9c+/JN6NWJtHzxhOzDUhin9cPO7aL6jBYTahdpaxDgE3/lLc8bD2/g3jKfJNAcs/hzT3IWylAd9YKcBa1cKRBQAAA',
+  '/assets/opt/turf.webp': 'data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADQAwCdASoYAA4APu1iqU2ppaOiMAgBMB2JZgC7ABSOnrj5sqDg2iAA4hjX4MWctrjWwlByGFWH0AAUAfoev/6zV6/xeybtaB6fwZLT5GXRtShgZe1TWvAsM0tNiZ9zyH6eD02H842JubT0og4Sh0wXqxrbyiIIFPuvqNViru4tfwEpGtfLMExPyoPPn9rjtcAAAA==',
+  '/assets/pergola.webp': 'data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAABQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JYgCdH8ACcwWph5W0H+wUwO6oAP06JSRI/rhgK73rE/GkQgaCYFT2/LQDHt8y0mgDY+zJn0zG0T7QV3aIjd/OlxQg/iD0G7usKMVw5okXZiavtlxuXgzgs8/pbJzgnZyxRbe4oEZl6K+EHa+C0Q7cXyIl7fFXjoKD4pmpr7vDQka5RD5d9e1M2O0BUtuLKgAAAA==',
+  '/assets/pool.png': 'data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JbACdMoR3Ff/l2AB7JHg55O8AAP6pxZ8geNiVumvmQCVx+35zdTq2Fjp27GoKaASGaK1kjZtlvqr8DBcWjRRfuGGg2qo9c+/JN6NWJtHzxhOzDUhin9cPO7aL6jBYTahdpaxDgE3/lLc8bD2/g3jKfJNAcs/hzT3IWylAd9YKcBa1cKRBQAAA',
+  '/assets/turf.webp': 'data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADQAwCdASoYAA4APu1iqU2ppaOiMAgBMB2JZgC7ABSOnrj5sqDg2iAA4hjX4MWctrjWwlByGFWH0AAUAfoev/6zV6/xeybtaB6fwZLT5GXRtShgZe1TWvAsM0tNiZ9zyH6eD02H842JubT0og4Sh0wXqxrbyiIIFPuvqNViru4tfwEpGtfLMExPyoPPn9rjtcAAAA==',
+}
+
+/** Map original asset paths to optimized WebP versions */
+export const optimizedImages = {
+  '/assets/garden.png': '/assets/opt/garden.webp',
+  '/assets/pool.png': '/assets/opt/pool.webp',
+  '/assets/hero.png': '/assets/opt/hero.webp',
+  '/assets/area-green.webp': '/assets/opt/area-green.webp',
+  '/assets/area-villa.webp': '/assets/opt/area-villa.webp',
+  '/assets/area-urban.webp': '/assets/opt/area-urban.webp',
+  '/assets/area-waterfront.webp': '/assets/opt/area-waterfront.webp',
+  '/assets/irrigation.webp': '/assets/opt/irrigation.webp',
+  '/assets/lighting.webp': '/assets/opt/lighting.webp',
+  '/assets/pergola.webp': '/assets/opt/pergola.webp',
+  '/assets/turf.webp': '/assets/opt/turf.webp',
+}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { hyatt } from '../data/homepage'
+import ProgressiveImage from './ProgressiveImage'
 import Reveal from './Reveal'
 
 export default function Hyatt() {
@@ -9,7 +10,7 @@ export default function Hyatt() {
 
   return (
     <section className="aq-hyatt" aria-label="One company one standard">
-      <img className="aq-hyatt-bg" src={hyatt.image} alt="" />
+      <ProgressiveImage className="aq-hyatt-bg" src={hyatt.image} alt="" loading="lazy" />
       <div className="aq-hyatt-overlay" aria-hidden="true" />
       <Reveal className="aq-hyatt-inner" y={36} amount={0.3}>
         <h2 className="aq-hyatt-title">{hyatt.title}</h2>
