@@ -1,6 +1,5 @@
 import ContactForm from '../components/ContactForm'
 import PageHero from '../components/PageHero'
-import Reveal from '../components/Reveal'
 import { site } from '../data/content'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
@@ -76,8 +75,7 @@ export default function Contact() {
 
       <section className="aq-contact aq-contact--page" aria-label="Contact details and form">
         <div className="aq-contact-page">
-          <Reveal className="aq-contact-aside">
-            <span className="aq-label">Talk to us</span>
+          <aside className="aq-contact-aside">
             <h2>No Pressure, No Obligation</h2>
             <p>
               Reach {site.shortName} for a free site visit. Quality work, reliable service and
@@ -149,7 +147,7 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </Reveal>
+          </aside>
 
           <div className="aq-contact-page-form">
             <ContactForm embedded />
