@@ -35,8 +35,8 @@ export default function Branded() {
           <h2>Villas, Communities &amp; Commercial</h2>
           <IntroWithCommunities />
           <p className="aq-branded-sub">
-            From a tired lawn in Arabian Ranches to a full garden-and-pool transformation on Palm
-            Jumeirah, we design, build and maintain outdoors that always look like handover day.
+            From a tired lawn in Arabian Ranches to a full garden makeover on Palm Jumeirah, we
+            design, install and maintain outdoors that always look their best.
           </p>
         </Reveal>
 

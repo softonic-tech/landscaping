@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 import ProgressiveImage from '../components/ProgressiveImage'
 import Reveal, { InViewGroup, InViewItem } from '../components/Reveal'
+import { site, teamPoints } from '../data/content'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 const CheckIcon = () => (
@@ -13,53 +14,46 @@ const CheckIcon = () => (
   </svg>
 )
 
-const points = [
-  'Honesty before revenue',
-  'In-house people, properly trained',
-  'Proof, not promises',
-  'Built for this climate',
-]
-
 export default function About() {
   useDocumentTitle(
-    'About Us | NAM Landscaping Dubai',
-    'NAM Landscaping — the one-team outdoor company Dubai was missing.',
+    `About Us | ${site.name}`,
+    `${site.name} — ${site.tagline}. Quality work, reliable service and customer satisfaction.`,
   )
 
   return (
     <main>
       <PageHero
         title="About Us"
-        subtitle="The one-team outdoor company Dubai was missing"
+        subtitle={site.slogan}
         image="/assets/area-green.webp"
       />
 
-      <section className="aq-team" aria-label="About NAM Landscaping">
+      <section className="aq-team" aria-label={`About ${site.name}`}>
         <InViewGroup className="aq-team-inner" amount={0.2}>
           <InViewItem className="aq-team-media">
             <ProgressiveImage
               src="/assets/garden.png"
-              alt="NAM Landscaping Dubai team"
+              alt={`${site.name} landscaping team`}
               loading="lazy"
             />
-            <span className="aq-team-label">50+ In-house team</span>
+            <span className="aq-team-label">{site.values[0]}</span>
           </InViewItem>
 
           <Reveal className="aq-team-content" delay={0.08}>
-            <h2 className="aq-team-title">Built Around a Simple Frustration</h2>
+            <h2 className="aq-team-title">{site.tagline}</h2>
             <p className="aq-team-copy">
-              Every villa owner in Dubai knows the routine: three invoices, three schedules, nobody
-              accountable for the outdoor space as a whole.
+              {site.name} turns outdoor visions into green, beautiful places — from small gardens
+              to large villa landscapes across Dubai.
             </p>
 
-            <h3 className="aq-team-sub">One company for garden and pool</h3>
+            <h3 className="aq-team-sub">What we stand for</h3>
             <p className="aq-team-copy aq-team-copy--hosp">
-              NAM Landscaping — Noor Al Madeena Landscaping — has delivered 1,000+ projects with a
-              50-plus in-house team. Around 80% of clients renew every year.
+              Quality work, reliable service and customer satisfaction on every project. One
+              accountable team for design, installation, maintenance and makeovers.
             </p>
 
             <ul className="aq-team-features">
-              {points.map((point) => (
+              {teamPoints.map((point) => (
                 <li key={point}>
                   <span className="aq-product-check">
                     <CheckIcon />

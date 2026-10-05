@@ -74,8 +74,8 @@ export default function Header() {
   return (
     <>
       <header className={`aq-header${open ? ' is-open' : ''}`}>
-        <Link to="/" className="aq-logo" aria-label="NAM Landscaping Dubai - Home">
-          <img src="/assets/aqualina/logo.png" alt="NAM Landscaping" width={63} height={98} />
+        <Link to="/" className="aq-logo" aria-label={`${site.name} - Home`}>
+          <img src={site.logo} alt={site.name} width={168} height={78} />
         </Link>
 
         <nav className="aq-nav-desktop" aria-label="Primary">
@@ -89,6 +89,7 @@ export default function Header() {
         <div className="aq-header-contacts">
           <a href={site.emailHref}>{site.email}</a>
           <a href={site.phoneHref}>{site.phone}</a>
+          <a href={site.phoneSecondaryHref}>{site.phoneSecondary}</a>
         </div>
 
         <button
@@ -139,8 +140,8 @@ export default function Header() {
                 transition={{ duration: 0.35, ease, delay: 0.05 }}
               >
                 <div className="aq-mobile-nav__brand">
-                  <span className="aq-mobile-nav__eyebrow">NAM Landscaping</span>
-                  <span className="aq-mobile-nav__place">Dubai · Outdoors</span>
+                  <span className="aq-mobile-nav__eyebrow">{site.shortName}</span>
+                  <span className="aq-mobile-nav__place">{site.tagline}</span>
                 </div>
               </motion.div>
 
@@ -188,10 +189,16 @@ export default function Header() {
                 </Link>
 
                 <div className="aq-mobile-nav__actions">
-                  <a className="aq-mobile-nav__action" href={site.phoneHref}>
-                    <span className="aq-mobile-nav__action-label">Call</span>
-                    <span className="aq-mobile-nav__action-value">{site.phone}</span>
-                  </a>
+                  {site.contacts.map((contact) => (
+                    <a
+                      key={contact.name}
+                      className="aq-mobile-nav__action"
+                      href={contact.phoneHref}
+                    >
+                      <span className="aq-mobile-nav__action-label">Call {contact.name}</span>
+                      <span className="aq-mobile-nav__action-value">{contact.phone}</span>
+                    </a>
+                  ))}
                   <a className="aq-mobile-nav__action" href={site.whatsapp} target="_blank" rel="noreferrer">
                     <span className="aq-mobile-nav__action-label">WhatsApp</span>
                     <span className="aq-mobile-nav__action-value">Chat now</span>

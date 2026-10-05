@@ -98,11 +98,11 @@ export const apartmentsBelowHyatt = [
     images: [img.turf],
   },
   {
-    id: 'proj-pool-clean',
-    title: 'Weekly Pool Care Plan',
-    price: 'Dubai · Pool Maintenance',
-    details: 'Weekly water testing, chemical balancing and equipment checks that keep pools safe, clear and swim-ready.',
-    images: [img.pool],
+    id: 'proj-renovation',
+    title: 'Garden Renovation & Makeover',
+    price: 'Dubai · Renovation',
+    details: 'Tired outdoor space refreshed with new planting, hardscape touches and a tidy lawn finish.',
+    images: [img.garden],
   },
   {
     id: 'proj-hardscape',
@@ -205,42 +205,42 @@ export const brandedResidences = [
     id: 'branded-palm',
     title: 'Palm Jumeirah Outdoor Living',
     summary:
-      'Coastal villas need salt-tolerant planting, corrosion-resistant pool equipment and finishes that hold up beside the sea.',
-    tags: ['Salt-tolerant planting', 'Poolside softscape', 'Coastal finishes'],
+      'Coastal villas need salt-tolerant planting and finishes that hold up beside the sea.',
+    tags: ['Salt-tolerant planting', 'Coastal softscape', 'Garden makeovers'],
     image: img.waterfront,
   },
   {
     id: 'branded-emirates-hills',
     title: 'Emirates Hills Estate Gardens',
     summary:
-      'Mature landscapes that reward expertise — established palms, ageing irrigation and pools due their first renovation.',
-    tags: ['Mature landscape care', 'Irrigation overhaul', 'Pool renovation'],
+      'Mature landscapes that reward expertise — established palms, ageing irrigation and renovation-ready gardens.',
+    tags: ['Mature landscape care', 'Irrigation overhaul', 'Garden renovation'],
     image: img.villa,
   },
   {
     id: 'branded-arabian-ranches',
     title: 'Arabian Ranches Family Gardens',
     summary:
-      'Play lawns, pet-friendly turf, shaded terraces and family pools on dependable weekly care.',
+      'Play lawns, pet-friendly turf, shaded terraces and dependable weekly garden care.',
     tags: ['Family gardens', 'Weekly care plans', 'Shade & turf'],
     image: img.green,
   },
 ]
 
 export const hyatt = {
-  title: 'ONE COMPANY. ONE STANDARD.',
+  title: 'YOUR VISION. OUR LANDSCAPING.',
   description:
-    'One trained team for your garden and pool — replacing the gardener, pool company and handyman under a single contract.',
-  living: 'Garden + pool, one contract',
+    'From small gardens to big spaces we do it all — design, installation, maintenance, irrigation and hardscaping under one trusted team.',
+  living: 'Quality · Reliable · Satisfied',
   price: 'Free site visit & quote',
   brochure: '/contact/',
-  image: img.pool,
+  image: img.garden,
 }
 
 export const testimonials = [
   {
     quote:
-      'Noor Al Madeena Landscaping is a trusted and leading company providing high-quality garden landscaping services.',
+      'Sunny Star Landscaping delivered high-quality garden work — professional, on time, and beautiful results.',
     name: 'Ikram Sahar',
     place: 'Dubai, UAE',
     avatar: '/assets/aqualina/review-1.jpg',

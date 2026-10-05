@@ -12,11 +12,13 @@ import Products from '../components/Products'
 import Team from '../components/Team'
 import Testimonials from '../components/Testimonials'
 import { apartmentsBelowHyatt } from '../data/homepage'
+import { site } from '../data/content'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { warmImages } from '../lib/imageCache'
 
 /** Shared homepage assets — warm once so repeated cards paint instantly. */
 const HOME_IMAGES = [
+  '/assets/hero.png',
   '/assets/garden.png',
   '/assets/pool.png',
   '/assets/area-green.webp',
@@ -31,8 +33,8 @@ const HOME_IMAGES = [
 
 export default function Home() {
   useDocumentTitle(
-    'Landscaping & Swimming Pool Maintenance in Dubai | NAM Landscaping',
-    'Premium garden landscaping, maintenance and swimming pool care across Dubai, by one trusted team.',
+    `Landscaping in Dubai | ${site.name}`,
+    `${site.tagline}. ${site.slogan}. Premium garden design, maintenance and outdoor care across Dubai.`,
   )
 
   useEffect(() => {

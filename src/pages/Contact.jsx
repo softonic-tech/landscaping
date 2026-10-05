@@ -6,8 +6,8 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 export default function Contact() {
   useDocumentTitle(
-    'Contact Us | Free Site Visit in Dubai | NAM Landscaping',
-    'Book your free site visit. Call, WhatsApp or send the form.',
+    `Contact Us | Free Site Visit | ${site.name}`,
+    `Book your free site visit. Call Riaz or Najeeb, WhatsApp or email ${site.email}.`,
   )
 
   return (
@@ -25,18 +25,20 @@ export default function Contact() {
             <span className="aq-label">Talk to us</span>
             <h2>No Pressure, No Obligation</h2>
             <p>
-              The same licensed Dubai team that does the work — 50+ trained staff, 1,000+ projects
-              delivered.
+              Reach {site.shortName} for a free site visit. Quality work, reliable service and
+              customer satisfaction — {site.commitment.toLowerCase()}.
             </p>
             <div className="aq-contact-points">
               <p>
                 <strong>Location</strong>
                 <span>{site.city}</span>
               </p>
-              <p>
-                <strong>Phone</strong>
-                <a href={site.phoneHref}>{site.phone}</a>
-              </p>
+              {site.contacts.map((contact) => (
+                <p key={contact.name}>
+                  <strong>{contact.name}</strong>
+                  <a href={contact.phoneHref}>{contact.phone}</a>
+                </p>
+              ))}
               <p>
                 <strong>Email</strong>
                 <a href={site.emailHref}>{site.email}</a>

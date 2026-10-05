@@ -7,7 +7,7 @@ export default function OffPlanVillas() {
     <>
       <SectionTitle
         title="Villa Landscape Projects"
-        subtitle="Gardens and pools we deliver across Dubai — representative examples of our work."
+        subtitle="Gardens and outdoor living we deliver across Dubai — representative examples of our work."
       />
       <ListingGrid listings={villaListings} label="Villa landscape projects" />
     </>

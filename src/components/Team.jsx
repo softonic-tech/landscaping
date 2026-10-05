@@ -1,5 +1,6 @@
 import ProgressiveImage from './ProgressiveImage'
 import Reveal, { InViewGroup, InViewItem } from './Reveal'
+import { site, teamPoints } from '../data/content'
 
 const CheckIcon = () => (
   <svg viewBox="0 0 24 24" width="10" height="10" aria-hidden="true">
@@ -10,41 +11,34 @@ const CheckIcon = () => (
   </svg>
 )
 
-const features = [
-  'Built for the Dubai climate',
-  'In-house teams, never subcontracted',
-  'Transparent written quotes',
-  'Reports after every visit',
-]
-
 export default function Team() {
   return (
-    <section className="aq-team" aria-label="Our Team">
+    <section className="aq-team" aria-label="Why Sunny Star">
       <InViewGroup className="aq-team-inner" amount={0.2}>
         <InViewItem className="aq-team-media">
           <ProgressiveImage
             src="/assets/area-green.webp"
-            alt="NAM Landscaping in-house Dubai team"
+            alt={`${site.name} landscaping work`}
             loading="lazy"
           />
-          <span className="aq-team-label">50+ In-house team</span>
+          <span className="aq-team-label">{site.values.join(' · ')}</span>
         </InViewItem>
 
         <Reveal className="aq-team-content" delay={0.08}>
-          <h2 className="aq-team-title">One Company. One Standard.</h2>
+          <h2 className="aq-team-title">{site.slogan}</h2>
           <p className="aq-team-copy">
-            Most Dubai homeowners juggle a gardener, a pool company and a handyman. We replace them
-            all with one trained, accountable team.
+            {site.name} delivers green spaces and beautiful places — design, installation,
+            maintenance and makeovers under one trusted team.
           </p>
 
           <h3 className="aq-team-sub">How we work</h3>
           <p className="aq-team-copy aq-team-copy--hosp">
-            Heat-tolerant planting, water-wise irrigation and summer-proof pool chemistry — with
-            clear scope, clear price, and no surprises mid-project.
+            Clear scope, clear price, and no surprises mid-project. From lawn care to hardscaping,
+            we do it all with quality work and reliable service.
           </p>
 
           <ul className="aq-team-features">
-            {features.map((feature) => (
+            {teamPoints.map((feature) => (
               <li key={feature}>
                 <span className="aq-product-check">
                   <CheckIcon />

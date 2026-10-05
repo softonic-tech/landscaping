@@ -1,13 +1,32 @@
 export const site = {
-  name: 'NAM Landscaping',
-  tagline: 'Landscaping & Swimming Pool Maintenance in Dubai',
-  email: 'hello@namlandscaping.ae',
-  phone: '+971 55 817 0150',
-  phoneHref: 'tel:+971558170150',
-  emailHref: 'mailto:hello@namlandscaping.ae',
-  whatsapp: 'https://wa.me/971558170150',
+  name: 'Sunny Star Landscaping LLC',
+  shortName: 'Sunny Star',
+  tagline: 'Green Spaces | Beautiful Places',
+  slogan: 'Your Vision Our Landscaping',
+  commitment: 'From small gardens to big spaces we do it all',
+  email: 'sunnystarlandscaping@gmail.com',
+  emailHref: 'mailto:sunnystarlandscaping@gmail.com',
+  phone: '056 662 0246',
+  phoneHref: 'tel:+971566620246',
+  phoneSecondary: '050 150 8148',
+  phoneSecondaryHref: 'tel:+971501508148',
+  whatsapp: 'https://wa.me/971566620246',
+  logo: '/assets/Sunny Star Landscaping LLC Logo.png',
   city: 'Dubai, UAE',
   hours: 'Mon to Sat, 8:00 AM to 6:00 PM',
+  contacts: [
+    {
+      name: 'Riaz',
+      phone: '056 662 0246',
+      phoneHref: 'tel:+971566620246',
+    },
+    {
+      name: 'Najeeb',
+      phone: '050 150 8148',
+      phoneHref: 'tel:+971501508148',
+    },
+  ],
+  values: ['Quality Work', 'Reliable Service', 'Customer Satisfaction'],
 }
 
 export const navLinks = [
@@ -23,10 +42,10 @@ export const stats = [
 ]
 
 export const teamPoints = [
+  'Quality work on every project',
+  'Reliable service you can count on',
+  'Customer satisfaction first',
   'Built for the Dubai climate',
-  'In-house teams, never subcontracted',
-  'Transparent written quotes',
-  'Reports after every visit',
 ]
 
 export const brandedBrands = [

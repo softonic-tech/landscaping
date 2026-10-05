@@ -17,23 +17,16 @@ const products = [
   {
     to: '/services/',
     image: '/assets/area-green.webp',
-    title: 'Landscaping',
-    description: 'Full villa garden design and build — lawns, planting, shade and hardscape.',
-    features: ['Garden design & build', 'Shade & lighting', 'Hardscape finishes'],
+    title: 'Design & Installation',
+    description: 'Full landscaping design and installation — lawns, planting, shade and hardscape.',
+    features: ['Garden design & install', 'Planting plans', 'Hardscape finishes'],
   },
   {
     to: '/services/',
     image: '/assets/garden.png',
     title: 'Garden Maintenance',
-    description: 'Scheduled visits that keep lawns green and irrigation tuned for Dubai heat.',
-    features: ['Weekly visits', 'Irrigation checks', 'Seasonal planting'],
-  },
-  {
-    to: '/services/',
-    image: '/assets/pool.png',
-    title: 'Pool Maintenance',
-    description: 'Weekly testing, balancing and equipment checks for a clear, swim-ready pool.',
-    features: ['Water testing', 'Chemical balancing', 'Equipment checks'],
+    description: 'Scheduled visits that keep gardens healthy, tidy and ready to enjoy.',
+    features: ['Weekly visits', 'Lawn care', 'Seasonal planting'],
   },
   {
     to: '/services/',
@@ -41,6 +34,13 @@ const products = [
     title: 'Irrigation Systems',
     description: 'Smart drip and sprinkler systems that keep gardens thriving with less water.',
     features: ['Smart drip systems', 'Sprinkler repair', 'Water-wise zoning'],
+  },
+  {
+    to: '/services/',
+    image: '/assets/area-urban.webp',
+    title: 'Hardscaping',
+    description: 'Pavers, pathways and walls built for everyday outdoor living.',
+    features: ['Pavers & pathways', 'Retaining walls', 'Outdoor upgrades'],
   },
 ]
 
@@ -90,10 +90,10 @@ export default function Products() {
     <section className="aq-products" aria-label="Outdoor services">
       <div className="aq-products-inner">
         <Reveal className="aq-products-head">
-          <h2 className="aq-products-title">Complete Outdoor Services</h2>
+          <h2 className="aq-products-title">Our Landscaping Services</h2>
           <p className="aq-products-copy">
-            Design, build and care — every outdoor service your Dubai property needs, by one
-            accountable team.
+            Your vision, our landscaping — design, maintenance, irrigation, hardscaping and more,
+            by one accountable Dubai team.
           </p>
         </Reveal>
 

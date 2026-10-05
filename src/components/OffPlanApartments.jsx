@@ -4,24 +4,24 @@ import SectionTitle from './SectionTitle'
 const listings = [
   {
     id: 'pkg-landscaping',
-    title: 'Landscaping',
-    price: 'Design & build',
-    details: 'Full villa garden design and build — lawns, planting, shade and hardscape.',
+    title: 'Design & Installation',
+    price: 'Full garden build',
+    details: 'Complete landscaping design and installation — lawns, planting, shade and hardscape.',
     images: ['/assets/garden.png'],
   },
   {
     id: 'pkg-garden-maint',
     title: 'Garden Maintenance',
     price: 'Scheduled visits',
-    details: 'Scheduled visits that keep lawns green and irrigation tuned for Dubai heat.',
+    details: 'Scheduled visits that keep gardens healthy, tidy and ready to enjoy.',
     images: ['/assets/area-green.webp'],
   },
   {
-    id: 'pkg-pool-maint',
-    title: 'Pool Maintenance',
-    price: 'Weekly care',
-    details: 'Weekly testing, balancing and equipment checks for a clear, swim-ready pool.',
-    images: ['/assets/pool.png'],
+    id: 'pkg-lawn-care',
+    title: 'Lawn Care & Grass Cutting',
+    price: 'Regular lawn care',
+    details: 'Regular lawn care, grass cutting and turf health for a clean, green finish.',
+    images: ['/assets/turf.webp'],
   },
   {
     id: 'pkg-irrigation',
@@ -37,7 +37,7 @@ export default function OffPlanApartments() {
     <>
       <SectionTitle
         title="Featured Services"
-        subtitle="Garden landscaping, maintenance and swimming pool care across Dubai."
+        subtitle="Design, maintenance, lawn care and irrigation — from small gardens to big spaces."
       />
       <ListingGrid listings={listings} label="Featured landscaping services" />
     </>

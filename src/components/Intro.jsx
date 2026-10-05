@@ -1,19 +1,20 @@
 import { Link } from 'react-router-dom'
 import ProgressiveImage from './ProgressiveImage'
 import Reveal, { InViewGroup, InViewItem } from './Reveal'
+import { site } from '../data/content'
 
 export default function Intro() {
   return (
-    <section className="aq-intro" aria-label="Welcome to Dubai">
+    <section className="aq-intro" aria-label={`Welcome to ${site.shortName}`}>
       <div className="aq-intro-inner">
         <Reveal className="aq-intro-top">
           <div className="aq-intro-heading">
-            <span className="aq-label">Dubai</span>
-            <h2 className="aq-intro-title">Complete Outdoor Services</h2>
+            <span className="aq-label">{site.shortName}</span>
+            <h2 className="aq-intro-title">{site.tagline}</h2>
           </div>
           <p className="aq-intro-copy">
-            Design, build and care — every outdoor service your Dubai property needs, delivered by
-            one accountable team.
+            {site.commitment}. Design, install, maintain and renovate outdoor spaces across Dubai
+            with quality work and reliable service.
           </p>
         </Reveal>
 
@@ -21,7 +22,7 @@ export default function Intro() {
           <InViewItem className="aq-intro-main">
             <ProgressiveImage
               src="/assets/garden.png"
-              alt="Premium villa garden landscaping in Dubai"
+              alt="Premium villa garden landscaping"
               loading="lazy"
             />
           </InViewItem>
@@ -29,30 +30,30 @@ export default function Intro() {
           <InViewItem>
             <Link to="/projects/" className="aq-stat-card aq-stat-card--listings">
               <span className="aq-stat-value">1,000+</span>
-              <span className="aq-stat-label">Projects across Dubai</span>
+              <span className="aq-stat-label">Projects delivered</span>
             </Link>
           </InViewItem>
 
           <InViewItem className="aq-intro-side">
             <ProgressiveImage
               src="/assets/area-villa.webp"
-              alt="Dubai villa outdoor living"
+              alt="Villa outdoor living landscaping"
               loading="lazy"
             />
           </InViewItem>
 
           <InViewItem className="aq-intro-bottom">
             <ProgressiveImage
-              src="/assets/pool.png"
-              alt="Swimming pool maintenance in Dubai"
+              src="/assets/irrigation.webp"
+              alt="Irrigation and garden care"
               loading="lazy"
             />
           </InViewItem>
 
           <InViewItem>
             <button type="button" className="aq-stat-card aq-stat-card--branded">
-              <span className="aq-stat-value">10+ yrs</span>
-              <span className="aq-stat-label">Serving Dubai outdoors</span>
+              <span className="aq-stat-value">Quality</span>
+              <span className="aq-stat-label">Reliable · Satisfied clients</span>
             </button>
           </InViewItem>
         </InViewGroup>
