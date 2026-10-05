@@ -51,43 +51,43 @@ export default function Home() {
     <main>
       <Hero />
 
-      <LazySection skeleton="block">
+      <LazySection skeleton="block" maxWaitMs={1200}>
         <Intro />
       </LazySection>
 
-      <LazySection skeleton="cards">
+      <LazySection skeleton="cards" maxWaitMs={1400}>
         <Products />
       </LazySection>
 
-      <LazySection skeleton="split">
+      <LazySection skeleton="split" maxWaitMs={1400}>
         <Team />
       </LazySection>
 
-      <LazySection skeleton="listings">
+      <LazySection skeleton="listings" maxWaitMs={1400}>
         <OffPlanApartments />
       </LazySection>
 
-      <LazySection skeleton="band">
+      <LazySection skeleton="band" maxWaitMs={1200}>
         <Hyatt />
       </LazySection>
 
-      <LazySection skeleton="listings">
+      <LazySection skeleton="listings" maxWaitMs={1600}>
         <ListingGrid listings={apartmentsBelowHyatt} label="Featured Dubai projects" />
       </LazySection>
 
-      <LazySection skeleton="listings">
+      <LazySection skeleton="listings" maxWaitMs={1600}>
         <OffPlanVillas />
       </LazySection>
 
-      <LazySection skeleton="cards">
+      <LazySection skeleton="cards" maxWaitMs={1400}>
         <Branded />
       </LazySection>
 
-      <LazySection skeleton="block">
+      <LazySection skeleton="block" eager>
         <ContactForm />
       </LazySection>
 
-      <LazySection skeleton="band">
+      <LazySection skeleton="band" eager>
         <Testimonials />
       </LazySection>
     </main>

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import useLiteMotion from '../hooks/useLiteMotion'
 
 function SectionSkeleton({ variant = 'block' }) {
   if (variant === 'cards') {
@@ -69,121 +68,134 @@ function SectionSkeleton({ variant = 'block' }) {
   )
 }
 
+/** True when media is loaded, failed, or there is nothing to wait on. */
 function sectionIsReady(root) {
   if (!root) return false
-  const progressive = root.querySelectorAll('.aq-progressive')
+
+  const progressive = [...root.querySelectorAll('.aq-progressive')]
   if (progressive.length > 0) {
-    return [...progressive].every((el) => el.classList.contains('is-loaded'))
+    // Ready when none are still loading (loaded or errored both drop is-loading)
+    return progressive.every((el) => !el.classList.contains('is-loading'))
   }
+
   const imgs = [...root.querySelectorAll('img')].filter(
     (img) => !img.classList.contains('aq-progressive__lqip'),
   )
   if (!imgs.length) return true
-  return imgs.every((img) => img.complete && img.naturalWidth > 0)
+  // complete covers both success and error; don't require naturalWidth
+  return imgs.every((img) => img.complete)
 }
 
 /**
- * Keeps a skeleton visible until the section is near the viewport and its
- * media has finished loading — especially important on mobile where Framer
- * + image decode can stall scroll.
+ * Shows a skeleton until the section is near the viewport and media has settled.
+ * Always reveals within maxWaitMs so content can never get stuck.
  */
 export default function LazySection({
   children,
   className = '',
   skeleton = 'block',
-  rootMargin = '220px 0px',
-  settleMs = 120,
-  maxWaitMs = 3200,
+  rootMargin = '280px 0px',
+  maxWaitMs = 1400,
+  /** Skip gating — render children immediately (use for light sections). */
+  eager = false,
 }) {
   const rootRef = useRef(null)
   const contentRef = useRef(null)
-  const lite = useLiteMotion()
-  const [inRange, setInRange] = useState(false)
-  const [ready, setReady] = useState(false)
+  const [inRange, setInRange] = useState(eager)
+  const [ready, setReady] = useState(eager)
 
   useEffect(() => {
+    if (eager) return undefined
     const el = rootRef.current
     if (!el) return undefined
 
-    // On desktop with roomy viewport, still gate with a short margin
-    const margin = lite ? rootMargin : '120px 0px'
+    let visible = false
+    const reveal = () => {
+      if (visible) return
+      visible = true
+      setInRange(true)
+    }
+
+    // Immediate check — IO can miss initially-visible nodes in some cases
+    const rect = el.getBoundingClientRect()
+    const vh = window.innerHeight || 0
+    const margin = 280
+    if (rect.top < vh + margin && rect.bottom > -margin) {
+      reveal()
+    }
+
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setInRange(true)
+        if (entry.isIntersecting) reveal()
       },
-      { rootMargin: margin, threshold: 0.01 },
+      { rootMargin, threshold: 0 },
     )
     io.observe(el)
-    return () => io.disconnect()
-  }, [lite, rootMargin])
+
+    // Hard fallback so a section can never stay gated forever
+    const boot = window.setTimeout(reveal, 800)
+
+    return () => {
+      io.disconnect()
+      window.clearTimeout(boot)
+    }
+  }, [eager, rootMargin])
 
   useEffect(() => {
-    if (!inRange) return undefined
-    let cancelled = false
-    let settleTimer = 0
-    const content = contentRef.current
+    if (eager || !inRange || ready) return undefined
 
-    const markReady = () => {
+    let cancelled = false
+    let intervalId = 0
+
+    const finish = () => {
       if (cancelled) return
-      window.clearTimeout(settleTimer)
-      settleTimer = window.setTimeout(() => {
-        if (!cancelled) setReady(true)
-      }, settleMs)
+      cancelled = true
+      window.clearInterval(intervalId)
+      setReady(true)
     }
 
     const check = () => {
-      if (cancelled) return
-      if (sectionIsReady(content)) markReady()
+      if (sectionIsReady(contentRef.current)) finish()
     }
 
-    check()
-    const failsafe = window.setTimeout(markReady, maxWaitMs)
-
-    const mo = content
-      ? new MutationObserver(check)
-      : null
-    mo?.observe(content, {
-      subtree: true,
-      childList: true,
-      attributes: true,
-      attributeFilter: ['class'],
+    // Ref is set after paint — wait a frame before first check
+    const raf = window.requestAnimationFrame(() => {
+      check()
+      intervalId = window.setInterval(check, 100)
     })
 
-    content?.addEventListener('load', check, true)
+    const failsafe = window.setTimeout(finish, maxWaitMs)
 
-    const poll = window.setInterval(check, lite ? 120 : 200)
+    const onLoad = () => check()
+    document.addEventListener('load', onLoad, true)
 
     return () => {
       cancelled = true
+      window.cancelAnimationFrame(raf)
+      window.clearInterval(intervalId)
       window.clearTimeout(failsafe)
-      window.clearTimeout(settleTimer)
-      window.clearInterval(poll)
-      mo?.disconnect()
-      content?.removeEventListener('load', check, true)
+      document.removeEventListener('load', onLoad, true)
     }
-  }, [inRange, settleMs, maxWaitMs, lite])
+  }, [eager, inRange, ready, maxWaitMs])
 
   return (
     <div
       ref={rootRef}
       className={`aq-lazy-section ${ready ? 'is-ready' : 'is-pending'} ${className}`.trim()}
     >
-      {!ready ? <SectionSkeleton variant={skeleton} /> : null}
       {inRange ? (
         <div
           ref={contentRef}
-          className="aq-lazy-section__content"
+          className={`aq-lazy-section__content${ready ? ' is-visible' : ''}`}
           aria-hidden={!ready}
-          style={{
-            // Keep layout warm under the skeleton; reveal when ready
-            opacity: ready ? 1 : 0,
-            pointerEvents: ready ? 'auto' : 'none',
-            position: ready ? 'relative' : 'absolute',
-            inset: ready ? 'auto' : 0,
-            width: '100%',
-          }}
         >
           {children}
+        </div>
+      ) : null}
+
+      {!ready ? (
+        <div className="aq-lazy-section__skel" aria-hidden="true">
+          <SectionSkeleton variant={skeleton} />
         </div>
       ) : null}
     </div>

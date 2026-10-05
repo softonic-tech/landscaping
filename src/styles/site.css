@@ -94,14 +94,29 @@ h1, h2, p { margin: 0; }
 /* ========== Lazy section skeletons ========== */
 .aq-lazy-section {
   position: relative;
-  content-visibility: auto;
-  contain-intrinsic-size: 680px;
-}
-.aq-lazy-section.is-ready {
-  contain-intrinsic-size: auto;
+  min-height: 1px;
 }
 .aq-lazy-section__content {
-  transition: opacity 0.35s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.aq-lazy-section__content.is-visible {
+  opacity: 1;
+}
+.aq-lazy-section.is-pending .aq-lazy-section__content {
+  /* Keep in normal flow so images can load; skeleton covers visually */
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aq-lazy-section__skel {
+  position: relative;
+  z-index: 1;
+  background: var(--aq-white);
+}
+.aq-lazy-section.is-ready .aq-lazy-section__skel {
+  display: none;
 }
 
 .aq-skel {

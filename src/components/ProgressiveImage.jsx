@@ -46,7 +46,7 @@ export default function ProgressiveImage({
       })
       .catch(() => {
         if (cancelled) return
-        markImageCached(src)
+        // Still clear loading state so LazySection can finish
         setLoaded(true)
       })
 
