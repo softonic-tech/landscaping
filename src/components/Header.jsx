@@ -146,19 +146,6 @@ export default function Header() {
             />
 
             <div className="aq-mobile-nav__inner">
-              <motion.div
-                className="aq-mobile-nav__head"
-                initial={{ opacity: 0, y: -12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.35, ease, delay: 0.05 }}
-              >
-                <div className="aq-mobile-nav__brand">
-                  <span className="aq-mobile-nav__eyebrow">{site.shortName}</span>
-                  <span className="aq-mobile-nav__place">{site.tagline}</span>
-                </div>
-              </motion.div>
-
               <motion.nav
                 className="aq-mobile-nav__links"
                 aria-label="Mobile"

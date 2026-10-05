@@ -25,14 +25,6 @@ export default function Hero() {
       </motion.div>
 
       <div className="aq-hero-content">
-        <motion.p
-          className="aq-hero-brand"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease, delay: 0.08 }}
-        >
-          {site.name}
-        </motion.p>
         <motion.h1
           className="aq-hero-title"
           initial={{ opacity: 0, y: 24 }}
