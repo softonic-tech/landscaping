@@ -15,7 +15,7 @@ export default function Hero() {
         transition={{ duration: 1.1, ease }}
       >
         <ProgressiveImage
-          src="/assets/hero.png"
+          src="/assets/garden.png"
           alt=""
           className="aq-hero-image"
           loading="eager"

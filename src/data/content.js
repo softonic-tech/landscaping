@@ -11,7 +11,8 @@ export const site = {
   phoneSecondary: '050 150 8148',
   phoneSecondaryHref: 'tel:+971501508148',
   whatsapp: 'https://wa.me/971566620246',
-  logo: '/assets/Sunny Star Landscaping LLC Logo.png',
+  logo: '/assets/Sunny Star Landscaping logo.png',
+  logoDark: '/assets/Sunny Star Landscaping LLC Logo.png',
   city: 'Dubai, UAE',
   hours: 'Mon to Sat, 8:00 AM to 6:00 PM',
   contacts: [
