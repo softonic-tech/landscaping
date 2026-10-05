@@ -18,17 +18,16 @@ const listVariants = {
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 28, filter: 'blur(6px)' },
+  hidden: { opacity: 0, y: 16 },
   show: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.55, ease },
+    transition: { duration: 0.4, ease },
   },
   exit: {
     opacity: 0,
-    y: 12,
-    transition: { duration: 0.2 },
+    y: 8,
+    transition: { duration: 0.18 },
   },
 }
 
@@ -46,8 +45,21 @@ export default function Header() {
   }, [location.pathname])
 
   useEffect(() => {
-    document.body.classList.toggle('nav-open', open)
-    return () => document.body.classList.remove('nav-open')
+    if (!open) {
+      document.body.classList.remove('nav-open')
+      document.body.style.removeProperty('top')
+      return undefined
+    }
+
+    const scrollY = window.scrollY
+    document.body.classList.add('nav-open')
+    document.body.style.top = `-${scrollY}px`
+
+    return () => {
+      document.body.classList.remove('nav-open')
+      document.body.style.removeProperty('top')
+      window.scrollTo(0, scrollY)
+    }
   }, [open])
 
   useEffect(() => {
