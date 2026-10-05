@@ -1937,16 +1937,17 @@ h1, h2, p { margin: 0; }
 .aq-contact-cards {
   margin-top: 28px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
 }
 .aq-contact-card {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 14px;
   min-width: 0;
-  padding: 16px 14px;
-  border-radius: 10px;
+  min-height: 76px;
+  padding: 18px 16px;
+  border-radius: 12px;
   background: #fff;
   border: 1px solid #d8e4dc;
   box-shadow: 0 8px 24px rgba(22, 53, 40, 0.05);
@@ -1957,6 +1958,9 @@ h1, h2, p { margin: 0; }
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
+.aq-contact-card--wide {
+  grid-column: 1 / -1;
+}
 .aq-contact-card:hover,
 .aq-contact-card:focus-visible {
   border-color: #7aa77a;
@@ -1966,8 +1970,8 @@ h1, h2, p { margin: 0; }
 }
 .aq-contact-card__icon {
   flex: none;
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -1978,8 +1982,8 @@ h1, h2, p { margin: 0; }
 }
 .aq-contact-card__icon svg {
   display: block;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 .aq-contact-card__icon--whatsapp {
   background: #e7f8ee;
@@ -1987,8 +1991,9 @@ h1, h2, p { margin: 0; }
 }
 .aq-contact-card__body {
   min-width: 0;
+  flex: 1;
   display: grid;
-  gap: 4px;
+  gap: 6px;
 }
 .aq-contact-card__label {
   font-size: 11px;
@@ -1998,15 +2003,27 @@ h1, h2, p { margin: 0; }
   color: #3f7a3a;
 }
 .aq-contact-card__value {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   line-height: 1.35;
   color: #163528;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.aq-contact-card__value--email {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  font-size: 15px;
+  letter-spacing: -0.01em;
 }
 .aq-contact-meta {
   margin-top: 18px;
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 .aq-contact-meta__item {
@@ -2094,6 +2111,9 @@ h1, h2, p { margin: 0; }
   }
   .aq-contact-cards {
     grid-template-columns: 1fr 1fr;
+  }
+  .aq-contact-meta {
+    grid-template-columns: 1fr;
   }
   .aq-contact-page-form {
     padding: 24px 18px 28px;

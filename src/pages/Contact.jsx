@@ -88,7 +88,7 @@ export default function Contact() {
               {site.contacts.map((contact) => (
                 <a
                   key={contact.name}
-                  className="aq-contact-card"
+                  className="aq-contact-card aq-contact-card--wide"
                   href={contact.phoneHref}
                 >
                   <span className="aq-contact-card__icon" aria-hidden="true">
@@ -102,7 +102,7 @@ export default function Contact() {
               ))}
 
               <a
-                className="aq-contact-card"
+                className="aq-contact-card aq-contact-card--wide"
                 href={site.whatsapp}
                 target="_blank"
                 rel="noreferrer"
@@ -112,17 +112,19 @@ export default function Contact() {
                 </span>
                 <span className="aq-contact-card__body">
                   <span className="aq-contact-card__label">WhatsApp</span>
-                  <span className="aq-contact-card__value">Chat with us</span>
+                  <span className="aq-contact-card__value">Chat with us now</span>
                 </span>
               </a>
 
-              <a className="aq-contact-card" href={site.emailHref}>
+              <a className="aq-contact-card aq-contact-card--wide" href={site.emailHref}>
                 <span className="aq-contact-card__icon" aria-hidden="true">
                   <IconMail />
                 </span>
                 <span className="aq-contact-card__body">
                   <span className="aq-contact-card__label">Email</span>
-                  <span className="aq-contact-card__value">{site.email}</span>
+                  <span className="aq-contact-card__value aq-contact-card__value--email">
+                    {site.email}
+                  </span>
                 </span>
               </a>
             </div>
