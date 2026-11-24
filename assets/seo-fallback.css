@@ -1,0 +1,75 @@
+/* Crawlable fallback content shown before React mounts. */
+.seo-skip {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.seo-skip:focus {
+  left: 16px;
+  top: 16px;
+  z-index: 10000;
+  width: auto;
+  height: auto;
+  padding: 10px 14px;
+  background: #103526;
+  color: #fff;
+}
+
+.seo-shell {
+  width: min(960px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 24px 0;
+  color: #1e2a22;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.seo-shell nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin: 16px 0 0;
+}
+
+.seo-shell a {
+  color: #103526;
+}
+
+.seo-shell h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.15;
+  margin: 18px 0 12px;
+}
+
+.seo-shell h2 {
+  font-size: clamp(22px, 3.5vw, 30px);
+  margin: 28px 0 10px;
+}
+
+.seo-shell img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.seo-shell ol,
+.seo-shell ul {
+  padding-left: 1.2em;
+}
+
+.seo-brand {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+body.js-ready .seo-shell,
+body.js-ready .seo-skip {
+  display: none !important;
+}

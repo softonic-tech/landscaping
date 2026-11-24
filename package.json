@@ -2,6 +2,8 @@
   "name": "landscaping",
   "private": true,
   "scripts": {
-    "build": "node init && node build-static.js"
+    "seo:pages": "node scripts/generate-seo-pages.js",
+    "build": "node init && node scripts/generate-seo-pages.js && node build-static.js",
+    "seo:validate": "node scripts/validate-seo.js"
   }
 }

@@ -1,6 +1,36 @@
 {
-  "buildCommand": "node build-static.js",
+  "buildCommand": "npm run build",
   "installCommand": "",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/services/:path*",
+      "destination": "/services/index.html"
+    },
+    {
+      "source": "/projects/:path*",
+      "destination": "/projects/index.html"
+    },
+    {
+      "source": "/areas/:path*",
+      "destination": "/areas/index.html"
+    },
+    {
+      "source": "/about/:path*",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/contact/:path*",
+      "destination": "/contact/index.html"
+    }
+  ]
 }
